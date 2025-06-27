@@ -5,7 +5,7 @@ const { Storage } = require("@google-cloud/storage");
 const pdfParse = require("pdf-parse");
 const authenticate = require("../middleware/auth.js");
 const UploadModel = require("../models/UploadModel.js");
-
+const keyPath = "/etc/secrets/gcp-key.json";
 const router = express.Router();
 
 // Multer memory storage config
@@ -14,7 +14,7 @@ const upload = multer({ storage });
 
 // Initialize Google Cloud Storage
 const gcs = new Storage({
-  keyFilename: path.join(__dirname, "../../vocal-clone-464109-k4-9c3f2e7a3552.json"),
+  keyFilename:keyPath,
 });
 const bucket = gcs.bucket("obarabucket");
 
