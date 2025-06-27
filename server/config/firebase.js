@@ -1,7 +1,8 @@
-let admin = require('firebase-admin');
-let serviceAccount = require('../../authforobara-firebase-adminsdk-fbsvc-e652d5b37b.json');
+const admin = require("firebase-admin");
+const serviceAccount = require("/etc/secrets/firebase-key.json");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)});
+  credential: admin.credential.cert(serviceAccount),
+});
 
 module.exports = admin;
